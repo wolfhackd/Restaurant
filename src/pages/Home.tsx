@@ -27,15 +27,41 @@ const Home = () => {
           <OrderNow />
         </div>
       </section>
-      <section className="bg-[#0B161A] h-screen grid grid-cols-3 grid-rows-2">
+      <section className="bg-[#0B161A] h-screen flex flex-col justify-center items-center">
         <div
           className="text-white col-span-3 flex flex-col pt-4 gap-4
-         justify-start items-center"
+         justify-center items-center mb-10"
         >
-          <p className="great-vibes-regular text-3xl">Momentos especiais</p>
-          <h2 className="roboto font-thin uppercase tracking-[2rem] text-5xl">
+          <p className="text-sm italic text-gray-300">Momentos especiais</p>
+          <h2 className="text-3xl tracking-wide uppercase font-light">
             Sobre Nós
           </h2>
+        </div>
+        <div className="md:grid md:grid-cols-[1fr_1fr_1fr] gap-10 mx-auto px-40">
+          {/* Imagem direita */}
+          <div
+            className="bg-cover h-[40rem] bg-no-repeat hidden md:block"
+            style={{ backgroundImage: "url('/comida-1.avif')" }}
+          ></div>
+
+          {/* Texto central */}
+          <div className="text-white bg-[#0f1e24] h-[40rem] flex flex-col justify-center items-center py-10 gap-6">
+            <p className="great-vibes-regular text-2xl"> A moda da casa</p>
+            <p className=" uppercase text-5xl font-medium text-center py-8">
+              Tradicional & Moderno
+            </p>
+            <p className="roboto text-center text-gray-400">
+              A gente acredita que comida boa vai muito além do tempero. É
+              carinho no preparo, respeito pela tradição e amor em cada detalhe.
+            </p>
+            <OrderNow />
+          </div>
+
+          {/* Imagem esquerda */}
+          <div
+            className="h-[40rem] bg-cover hidden md:block"
+            style={{ backgroundImage: "url('/comida-2.avif')" }}
+          ></div>
         </div>
       </section>
     </>
