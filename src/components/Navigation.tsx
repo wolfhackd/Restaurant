@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import OrderNow from "./OrderNow";
+import { useLocation, useNavigate } from "react-router-dom";
+import clsx from "clsx";
 
 const Navigation = () => {
+  const currentPath = useLocation();
+  const navigate = useNavigate();
+
   type NavItem = {
     label: string;
     href: string;
@@ -12,6 +17,11 @@ const Navigation = () => {
     { label: "Sobre", href: "/about" },
     { label: "Cardápio", href: "/menu" },
   ];
+
+  function redirect(path: string) {
+    if (currentPath.pathname === path) return;
+    navigate(path);
+  }
 
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -54,7 +64,13 @@ const Navigation = () => {
             return (
               <button
                 key={item.label}
-                className="text-white hover:text-amber-300 cursor-pointer hover:border-b"
+                className={clsx(
+                  " cursor-pointer hover:border-b hover:text-amber-300",
+                  currentPath.pathname === item.href
+                    ? "text-amber-300 border-b border-amber-300"
+                    : "text-white "
+                )}
+                onClick={() => redirect(item.href)}
               >
                 {item.label}
               </button>
