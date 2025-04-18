@@ -2,19 +2,14 @@ import { useEffect, useState } from "react";
 import OrderNow from "./OrderNow";
 import { useLocation, useNavigate } from "react-router-dom";
 import clsx from "clsx";
+import { NavItem } from "../types/types";
 
 const Navigation = () => {
   const currentPath = useLocation();
   const navigate = useNavigate();
 
-  type NavItem = {
-    label: string;
-    href: string;
-  };
-
   const navItems: NavItem[] = [
     { label: "Início", href: "/" },
-    { label: "Sobre", href: "/about" },
     { label: "Cardápio", href: "/menu" },
   ];
 
@@ -30,7 +25,7 @@ const Navigation = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+      if (currentScrollY > lastScrollY && currentScrollY > 90) {
         setVisible(false);
       } else {
         setVisible(true);
@@ -45,9 +40,10 @@ const Navigation = () => {
   return (
     <>
       <div
-        className={`bg-[#0B161A] text-white sm:flex sm:justify-around md:fixed p-1 md:top-0 z-50 transition-transform duration-300 w-full md:${
-          visible ? "translate-y-0" : "-translate-y-full"
-        }`}
+        className={clsx(
+          `bg-[#0B161A] text-white sm:flex sm:justify-around md:fixed p-1 md:top-0 z-50 transition-transform duration-300 w-full`,
+          visible ? "md:translate-y-0" : "md:-translate-y-full"
+        )}
       >
         <div className="flex flex-col uppercase roboto mx-4 w-screen sm:w-fit">
           <h1 className="font-bold text-center text-4xl sm:text-2xl">
@@ -60,6 +56,7 @@ const Navigation = () => {
           </div>
         </div>
         <nav className="flex justify-around pb-2 sm:justify-between font-bold roboto w-full sm:w-1/4">
+          {/* Tentar transformar em um componente */}
           {navItems.map((item) => {
             return (
               <button
