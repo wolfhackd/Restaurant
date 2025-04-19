@@ -1,5 +1,8 @@
 import Navigation from "@/components/Navigation";
 import OrderNow from "@/components/OrderNow";
+import comida1 from "../assets/comida-1.avif";
+import comida2 from "../assets/comida-2.avif";
+import bgHero from "../assets/bg-hero.jpg";
 
 const Home = () => {
   return (
@@ -7,7 +10,7 @@ const Home = () => {
       <Navigation />
       <section
         className="bg-cover relative bg-opacity-70 bg-blend-multiply bg-center text-white p-10 text-center min-h-[80vh] flex flex-col items-center justify-center "
-        style={{ backgroundImage: "url('/bg-hero.jpg')" }}
+        style={{ backgroundImage: `url(${bgHero})` }}
       >
         <div className="bg-gray-800/40 bg-blend-multiply bg-center text-white p-10 text-center min-h-[80vh] w-full flex flex-col items-center justify-center absolute">
           <p className="text-lg mb-4 font-bold max-w-xl mx-auto">
@@ -41,7 +44,7 @@ const Home = () => {
           {/* Imagem direita */}
           <div
             className="bg-cover h-[40rem] bg-no-repeat hidden md:block"
-            style={{ backgroundImage: "url('/comida-1.avif')" }}
+            style={{ backgroundImage: `url(${comida1})` }}
           ></div>
 
           {/* Texto central */}
@@ -60,7 +63,7 @@ const Home = () => {
           {/* Imagem esquerda */}
           <div
             className="h-[40rem] bg-cover hidden md:block"
-            style={{ backgroundImage: "url('/comida-2.avif')" }}
+            style={{ backgroundImage: `url(${comida2})` }}
           ></div>
         </div>
       </section>

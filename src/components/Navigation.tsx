@@ -1,22 +1,14 @@
 import { useEffect, useState } from "react";
 import OrderNow from "./OrderNow";
-import { useLocation, useNavigate } from "react-router-dom";
 import clsx from "clsx";
 import { NavItem } from "../types/types";
+import NavItems from "./NavItems";
 
 const Navigation = () => {
-  const currentPath = useLocation();
-  const navigate = useNavigate();
-
   const navItems: NavItem[] = [
     { label: "Início", href: "/" },
     { label: "Cardápio", href: "/menu" },
   ];
-
-  function redirect(path: string) {
-    if (currentPath.pathname === path) return;
-    navigate(path);
-  }
 
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -57,22 +49,7 @@ const Navigation = () => {
         </div>
         <nav className="flex justify-around pb-2 sm:justify-between font-bold roboto w-full sm:w-1/4">
           {/* Tentar transformar em um componente */}
-          {navItems.map((item) => {
-            return (
-              <button
-                key={item.label}
-                className={clsx(
-                  " cursor-pointer hover:border-b hover:text-amber-300",
-                  currentPath.pathname === item.href
-                    ? "text-amber-300 border-b border-amber-300"
-                    : "text-white "
-                )}
-                onClick={() => redirect(item.href)}
-              >
-                {item.label}
-              </button>
-            );
-          })}
+          <NavItems navItems={navItems} />
         </nav>
         <OrderNow />
       </div>
