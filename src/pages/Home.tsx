@@ -1,5 +1,4 @@
 import Navigation from "@/components/Navigation";
-import OrderNow from "@/components/OrderNow";
 import comida1 from "../assets/comida-1.avif";
 import comida2 from "../assets/comida-2.avif";
 import bgHero from "../assets/bg-hero.jpg";
@@ -27,7 +26,6 @@ const Home = () => {
             infância, da roça, da vó... e deixa a barriga e o coração
             quentinhos.
           </p>
-          <OrderNow />
         </div>
       </section>
       <section className="bg-[#0B161A] h-screen flex flex-col justify-center items-center">
@@ -57,7 +55,6 @@ const Home = () => {
               A gente acredita que comida boa vai muito além do tempero. É
               carinho no preparo, respeito pela tradição e amor em cada detalhe.
             </p>
-            <OrderNow />
           </div>
 
           {/* Imagem esquerda */}

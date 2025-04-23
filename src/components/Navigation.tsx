@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import OrderNow from "./OrderNow";
 import clsx from "clsx";
 import { NavItem } from "../types/types";
 import NavItems from "./NavItems";
@@ -51,7 +50,6 @@ const Navigation = () => {
           {/* Tentar transformar em um componente */}
           <NavItems navItems={navItems} />
         </nav>
-        <OrderNow />
       </div>
     </>
   );
